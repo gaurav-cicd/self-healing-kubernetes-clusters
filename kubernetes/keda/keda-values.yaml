@@ -1,0 +1,42 @@
+keda:
+  serviceAccount:
+    create: true
+    annotations: {}
+  operator:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  metricsServer:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 100Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  webhooks:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 64Mi
+      limits:
+        cpu: 500m
+        memory: 512Mi
+
+serviceAccount:
+  create: true
+  annotations: {}
+
+rbac:
+  create: true
+
+podSecurityContext:
+  fsGroup: 1001
+
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1001 
